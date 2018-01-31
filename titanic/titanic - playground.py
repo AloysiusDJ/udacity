@@ -7,9 +7,14 @@ Created on Fri Jan 19 06:41:20 2018
 
 import numpy as np
 import pandas as pd
+import tensorflow as tf
+import shutil
 from IPython.display import display
 
 import visuals as vs
+
+log_dir="./graph"
+shutil.rmtree(log_dir, ignore_errors=True)
 
 #%matplotlib inline
 
@@ -144,7 +149,7 @@ print(sum(map(lambda x:x==1,predictions)))
 print(sum(map(lambda x:x==False,outcomes==predictions)))
 print(sum(map(lambda x:x==True,outcomes==predictions)))
 
-print((pd.concat([outcomes, predictions, (outcomes==predictions)], axis=1))
+print((pd.concat([outcomes, predictions, (outcomes==predictions)], axis=1)))
 print("{:.2f}%".format((outcomes==predictions).mean()*100))
 
 print(accuracy_score(outcomes, predictions))
@@ -162,6 +167,10 @@ print(accuracy_score(outcomes, predictions))
 
 full_data.info()
 
+with tf.Session() as sess:
+    writer = tf.summary.FileWriter(log_dir, sess.graph)
+    print(sess.run(full_data))
+    writer.close()
 
 
 

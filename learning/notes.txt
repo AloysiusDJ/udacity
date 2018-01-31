@@ -1,0 +1,34 @@
+ row: observation, sample, example, instance, record
+ column : feature, attribute, input, independent variable,  predictor, regressor, covariate (column header = feature name)
+ column target : label, target, response, dependent variable, outcome ( "each unique value" in column target = target names)
+ 
+ classification - unordered, categorical
+ regression - ordered, continuous
+ 
+ scikit-learn estimator : model, instantiate (relationship between X and y)
+ 
+ underfit-bias, overfit-variance
+ 
+	0	1   (Predict)
+0	TN	FP  (Type I error)
+1	FN	TP   (Type II)
+(Act)
+
+Precision (If +ve predicted how often correct actual)		TP/(TP+FP)
+Recall/Sensitivity (TPR) (If +ve actual, how ofetn correctly predicted) 	TP/TP+FN
+Specificity (If -ve actual, how ofetn correctly predicted) 	TN/TN+FP
+FalsePositiveRate (1-Specificity) (If -ve actual, how ofetn incorrect predicted) 	FP/TN+FP
+
+Recall/Sensitivity-fraud where FP acceptable than FN
+Precision/Specificity-spam where FN acceptable than FP
+
+F-1 score = Harmonic Mean (Precision, Recall) 2xy/(x+y)
+
+R2 score close to 1 good model
+
+Increase Sensitivity (and decrease Specificity) by decreasing Threshold
+
+ROC Curve to choose Threshold FPR vs TPR)
+
+Higher AUC (area under ROC) better 
+
